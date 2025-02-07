@@ -3,6 +3,7 @@ import { Container } from '../../components/container/container';
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { Main } from '../../components/main/main';
+import { TitleWrapper } from '../../components/title-wrapper/title-wrapper';
 import { Title } from '../../components/title/title';
 import { Page } from '../../const';
 import { PageValues } from '../../types/page';
@@ -22,19 +23,17 @@ function MainPage({ isLogin, quests }: MainPageProps) {
       <Header page={page} isLogin={isLogin} />
       <Main page={page}>
         <Container page={page}>
-          <Title>
+          <TitleWrapper>
             <h1 className="subtitle page-content__subtitle">
               квесты в Санкт-Петербурге
             </h1>
-            <h2 className="title title--size-m page-content__title">
-              Выберите тематику
-            </h2>
-          </Title>
+            <Title as="h2" page={page}>Выберите тематику</Title>
+          </TitleWrapper>
           <div className="page-content__item">
             <FilterForm />
           </div>
           <h2 className="title visually-hidden">Выберите квест</h2>
-          <Cards quests={quests} />
+          <Cards quests={quests} page={page} />
         </Container>
       </Main>
       <Footer />

@@ -1,16 +1,28 @@
+import { FC, ReactNode } from 'react';
 import cn from 'classnames';
-import { PropsWithChildren } from 'react';
+import { PageValues } from '../../types/page';
+import { Page } from '../../const';
 
-type TitleProps = PropsWithChildren<{
-  isUnderlined?: boolean;
-}>;
+interface Props {
+  as?: 'h1' | 'h2' | 'p';
+  page: PageValues;
+  children: ReactNode;
+}
 
-function Title({ isUnderlined = false, children }: TitleProps): JSX.Element {
-  const className = cn('page-content__title-wrapper', {
-    ['page-content__title-wrapper--underlined']: isUnderlined,
+const Title: FC<Props> = ({ as = 'h1', page, children }) => {
+  const Component = as;
+  const className = cn('title', {
+    ['title--size-m page-content__title']:
+      page === Page.Main ||
+      page === Page.Booking ||
+      page === Page.Favorites ||
+      page === Page.Contacts,
+    ['title--uppercase']: page === Page.Booking || page === Page.Quest,
+    ['title--size-l quest-page__title']: page === Page.Quest,
+    ['title--size-s login-form__title']: page === Page.Login,
   });
 
-  return <div className={className}>{children}</div>;
-}
+  return <Component className={className}>{children}</Component>;
+};
 
 export { Title };

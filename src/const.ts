@@ -15,7 +15,7 @@ const AuthStatus = {
 
 const Path = {
   Main: '/',
-  Quest: `/${Page.Quest}`,
+  Quest: `/${Page.Quest}/:id`,
   Contacts: `/${Page.Contacts}`,
   Login: `/${Page.Login}`,
   Booking: `/${Page.Booking}`,
@@ -45,7 +45,7 @@ const FilterValues = {
         height: '30',
       },
     },
-    adventure: {
+    adventures: {
       text: 'Приключения',
       icon: {
         name: 'icon-adventure',
@@ -77,7 +77,7 @@ const FilterValues = {
         height: '30',
       },
     },
-    sciFi: {
+    'sci-fi': {
       text: 'Sci-fi',
       icon: {
         name: 'icon-sci-fi',
@@ -93,7 +93,7 @@ const FilterValues = {
     easy: {
       text: 'Лёгкий',
     },
-    middle: {
+    medium: {
       text: 'Средний',
     },
     hard: {

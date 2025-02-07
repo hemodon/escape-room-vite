@@ -1,15 +1,24 @@
 import { LevelsFilterKeys, TypesFilterKeys } from './filter';
 
-type Quest = {
+type PeopleMinMax = [number, number];
+
+type Level = Exclude<LevelsFilterKeys, 'any'>;
+
+type QuestMain = {
   id: string;
   title: string;
   previewImg: string;
   previewImgWebp: string;
-  level: Exclude<LevelsFilterKeys, 'any'>;
+  level: Level;
   type: Exclude<TypesFilterKeys, 'all'>;
-  peopleMinMax: [number, number];
+  peopleMinMax: PeopleMinMax;
+  description: string;
+  coverImg: string;
+  coverImgWebp: string;
 };
+
+type Quest = Omit<QuestMain, 'description' | 'coverImg' | 'coverImgWebp'>;
 
 type Quests = Quest[];
 
-export type { Quest, Quests };
+export type { Level, PeopleMinMax, QuestMain, Quest, Quests };

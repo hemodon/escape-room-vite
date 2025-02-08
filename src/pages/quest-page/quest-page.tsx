@@ -1,4 +1,5 @@
 import { Container } from '../../components/container/container';
+import { Decor } from '../../components/decor/decor';
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { Main } from '../../components/main/main';
@@ -38,27 +39,21 @@ function QuestPage({ questId, isLogin }: QuestPageProps): JSX.Element {
     <div className="wrapper">
       <Header page={page} isLogin={isLogin} />
       <Main page={page}>
-        <div className="decorated-page__decor" aria-hidden="true">
-          <picture>
-            <source
-              type="image/webp"
-              srcSet={`${previewImgWebp}, ${coverImgWebp} 2x`}
-            />
-            <img
-              src={previewImg}
-              srcSet={`${coverImg} 2x`}
-              width={1366}
-              height={768}
-              alt="title"
-            />
-          </picture>
-        </div>
+        <Decor
+          page={page}
+          previewImg={previewImg}
+          coverImg={coverImg}
+          previewImgWebp={previewImgWebp}
+          coverImgWebp={coverImgWebp}
+        />
         <Container page={page}>
           <div className="quest-page__content">
             <Title as="h1" page={page}>
               {title}
             </Title>
-            <Subtitle as='p' page={page}>{genreQuest}</Subtitle>
+            <Subtitle as="p" page={page}>
+              {genreQuest}
+            </Subtitle>
             <QuestTags peopleMinMax={peopleMinMax} level={level} page={page} />
             <p className="quest-page__description">{description}</p>
             <a

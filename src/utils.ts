@@ -1,4 +1,9 @@
+import { PageValues } from './types/page';
+
 const convertPhone = (phoneNumber: string): string =>
   phoneNumber.replace(/\D/g, '');
 
-export { convertPhone };
+const hasSome = <T = PageValues>(values: T, ...items: T[]): boolean =>
+  items.some((item) => item === values);
+
+export { convertPhone, hasSome };

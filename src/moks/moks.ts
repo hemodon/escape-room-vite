@@ -1,3 +1,4 @@
+import { UserBookings } from '../types/user-booking';
 import { QuestMain, Quests } from '../types/quest';
 
 const quests: Quests = [
@@ -189,4 +190,127 @@ const questMains: QuestMain[] = [
   },
 ];
 
-export { quests, questMains };
+const places = [
+  {
+    id: '996c0e93-cd93-4df5-b1a8-cc551a880a72',
+    location: {
+      address: 'Полюстровский парк, м. Ладожская',
+      coords: [59.96536433646851, 30.424032915448624],
+    },
+    slots: {
+      today: [
+        {
+          time: '14:00',
+          isAvailable: true,
+        },
+        {
+          time: '15:00',
+          isAvailable: true,
+        },
+        {
+          time: '16:00',
+          isAvailable: true,
+        },
+        {
+          time: '17:00',
+          isAvailable: false,
+        },
+        {
+          time: '18:00',
+          isAvailable: false,
+        },
+        {
+          time: '19:00',
+          isAvailable: true,
+        },
+        {
+          time: '20:00',
+          isAvailable: false,
+        },
+      ],
+      tomorrow: [
+        {
+          time: '14:00',
+          isAvailable: true,
+        },
+        {
+          time: '15:00',
+          isAvailable: true,
+        },
+        {
+          time: '16:00',
+          isAvailable: true,
+        },
+        {
+          time: '17:00',
+          isAvailable: true,
+        },
+        {
+          time: '18:00',
+          isAvailable: false,
+        },
+        {
+          time: '19:00',
+          isAvailable: false,
+        },
+        {
+          time: '20:00',
+          isAvailable: false,
+        },
+      ],
+    },
+  },
+];
+
+const userBookings: UserBookings = [
+  {
+    date: 'today',
+    time: '14:00',
+    contactPerson: 'Oliver',
+    phone: '899911122233',
+    withChildren: true,
+    peopleCount: 6,
+    id: '0c5fa01d-e89c-478d-9b85-799cf4abe29f',
+    location: {
+      address: 'Набережная реки Карповки, 5П',
+      coords: [30.317359, 30.317359],
+    },
+    quest: {
+      id: '0a6b665c-7191-4e09-96a5-b091f45f108f',
+      title: 'Склеп',
+      previewImg:
+        'https://grading.design.htmlacademy.pro/static/quest/crypt.jpg',
+      previewImgWebp:
+        'https://grading.design.htmlacademy.pro/static/quest/crypt.webp',
+      level: 'medium',
+      type: 'adventures',
+      peopleMinMax: [2, 5],
+    },
+  },
+  {
+    date: 'tomorrow',
+    time: '17:00',
+    contactPerson: 'Oliver',
+    phone: '899911122233',
+    withChildren: true,
+    peopleCount: 3,
+    id: '0c5fa01d-e89c-478d-9e85-799b8bef',
+    location: {
+      address: 'Набережная реки Карповки, 5П',
+      coords: [30.317359, 30.317359],
+    },
+    quest: {
+      id: '41ec1121-8771-47c3-b2d2-891c7806b7dc',
+      title: 'Тайны старого особняка',
+      previewImg:
+        'https://grading.design.htmlacademy.pro/static/quest/palace.jpg',
+      previewImgWebp:
+        'https://grading.design.htmlacademy.pro/static/quest/palace.webp',
+      level: 'easy',
+      type: 'adventures',
+      peopleMinMax: [2, 5],
+    },
+  },
+];
+
+export { quests, questMains, places, userBookings };

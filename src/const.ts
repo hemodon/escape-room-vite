@@ -102,4 +102,13 @@ const FilterValues = {
   },
 } as const;
 
-export { Page, AuthStatus, Path, Contacts, Contact, FilterValues };
+const AllowedDate = {
+  today: {
+    text: 'сегодня',
+  },
+  tomorrow: {
+    text: 'завтра',
+  },
+} as const;
+
+export { Page, AuthStatus, Path, Contacts, Contact, FilterValues, AllowedDate };

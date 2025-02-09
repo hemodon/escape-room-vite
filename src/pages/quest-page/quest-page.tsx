@@ -4,7 +4,7 @@ import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { Main } from '../../components/main/main';
 import { QuestTags } from '../../components/quest-tags/quest-tags';
-import { Subtitle } from '../../components/subtitle/subtitle';
+import { Subtitle } from '../../components/sub-title/subtitle';
 import { Title } from '../../components/title/title';
 import { FilterValues, Page } from '../../const';
 import { questMains } from '../../moks/moks';

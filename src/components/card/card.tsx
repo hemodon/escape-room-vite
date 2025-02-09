@@ -1,15 +1,22 @@
+import { AllowedDate } from '../../const';
+import { DayPlaceBooking } from '../../types/user-booking';
 import { PageValues } from '../../types/page';
 import { Quest } from '../../types/quest';
 import { QuestTags } from '../quest-tags/quest-tags';
+import { Cancel } from './components/cencel/cencel';
 
 type CardProps = {
   quest: Quest;
   page: PageValues;
+  dayPlaceBooking?: DayPlaceBooking;
 };
 
-function Card({ quest, page }: CardProps): JSX.Element {
+function Card({ quest, page, dayPlaceBooking }: CardProps): JSX.Element {
   const { id, title, previewImg, previewImgWebp, level, type, peopleMinMax } =
     quest;
+  const day = dayPlaceBooking ? AllowedDate[dayPlaceBooking.date].text : '';
+  const time = dayPlaceBooking?.time ?? '';
+  const address = dayPlaceBooking?.location.address ?? '';
 
   return (
     <div className="quest-card">
@@ -32,8 +39,19 @@ function Card({ quest, page }: CardProps): JSX.Element {
           <a className="quest-card__link" href="quest.html">
             {title}
           </a>
+          {dayPlaceBooking && (
+            <span className="quest-card__info">
+              [{day},&nbsp;{time}. {address}]
+            </span>
+          )}
         </div>
-        <QuestTags peopleMinMax={peopleMinMax} level={level} page={page} />
+        <QuestTags
+          peopleMinMax={peopleMinMax}
+          level={level}
+          page={page}
+          peopleCount={dayPlaceBooking?.peopleCount}
+        />
+        {dayPlaceBooking && <Cancel />}
       </div>
     </div>
   );

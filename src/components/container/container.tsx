@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { PropsWithChildren } from 'react';
 import { PageValues } from '../../types/page';
 import { Page } from '../../const';
+import { hasSome } from '../../utils';
 
 type ContainerProps = PropsWithChildren<{
   page: PageValues;
@@ -9,7 +10,7 @@ type ContainerProps = PropsWithChildren<{
 
 function Container({ page, children }: ContainerProps): JSX.Element {
   const className = cn('container', {
-    ['container--size-l']: page === Page.Quest || page === Page.Login,
+    ['container--size-l']: hasSome(page,Page.Quest,Page.Login),
     ['container--size-s']: page === Page.Booking,
   });
 

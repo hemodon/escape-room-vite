@@ -3,10 +3,10 @@ import { Container } from '../../components/container/container';
 import { Footer } from '../../components/footer/footer';
 import { Header } from '../../components/header/header';
 import { Main } from '../../components/main/main';
+import { Subtitle } from '../../components/sub-title/subtitle';
 import { TitleWrapper } from '../../components/title-wrapper/title-wrapper';
 import { Title } from '../../components/title/title';
 import { Page } from '../../const';
-import { PageValues } from '../../types/page';
 import { Quests } from '../../types/quest';
 import { FilterForm } from './Components/filter-form/filter-form';
 
@@ -16,7 +16,7 @@ type MainPageProps = {
 };
 
 function MainPage({ isLogin, quests }: MainPageProps) {
-  const page: PageValues = Page.Main;
+  const page = Page.Main;
 
   return (
     <div className="wrapper">
@@ -24,10 +24,12 @@ function MainPage({ isLogin, quests }: MainPageProps) {
       <Main page={page}>
         <Container page={page}>
           <TitleWrapper>
-            <h1 className="subtitle page-content__subtitle">
+            <Subtitle as="h1" page={page}>
               квесты в Санкт-Петербурге
-            </h1>
-            <Title as="h2" page={page}>Выберите тематику</Title>
+            </Subtitle>
+            <Title as="h2" page={page}>
+              Выберите тематику
+            </Title>
           </TitleWrapper>
           <div className="page-content__item">
             <FilterForm />

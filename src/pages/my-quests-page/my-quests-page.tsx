@@ -15,7 +15,7 @@ type FavoritesProps = {
 };
 
 function MyQuestsPage({ isLogin }: FavoritesProps): JSX.Element {
-  const page = Page.Favorites;
+  const page = Page.MyQuests;
   const quests = userBookings.map(({ quest }) => quest);
   const dayPlaceBookings = userBookings.map(
     ({ date, time, peopleCount, location }) => ({

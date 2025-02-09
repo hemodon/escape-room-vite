@@ -11,12 +11,12 @@ import { FilterValues, Page } from '../../const';
 import { questMains } from '../../moks/moks';
 
 type QuestPageProps = {
-  questId: string;
   isLogin: boolean;
 };
 
-function QuestPage({ questId, isLogin }: QuestPageProps): JSX.Element {
+function QuestPage({ isLogin }: QuestPageProps): JSX.Element {
   const page = Page.Quest;
+  const questId = '0a6b665c-7191-4e09-96a5-b091f45f108f';
   const quest = questMains.find(({ id }) => id === questId);
 
   if (!quest) {

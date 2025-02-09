@@ -1,28 +1,40 @@
-import { Page } from '../../const';
+import { Link } from 'react-router-dom';
+import { Page, Path } from '../../const';
+import { PageValues } from '../../types/page';
 
 type NavProps = {
   isLogin: boolean;
+  page: PageValues;
 };
 
-function Nav({ isLogin }: NavProps) {
+function Nav({ isLogin, page }: NavProps) {
   return (
     <nav className="main-nav header__main-nav">
       <ul className="main-nav__list">
         <li className="main-nav__item">
-          <a className="link active" href={`${Page.Main}.html`}>
+          <Link
+            className={`link ${page === Page.Main ? 'active' : ''}`}
+            to={Path.Main}
+          >
             Квесты
-          </a>
+          </Link>
         </li>
         <li className="main-nav__item">
-          <a className="link" href={`${Page.Contacts}.html`}>
+          <Link
+            className={`link ${page === Page.Contacts ? 'active' : ''}`}
+            to={Path.Contacts}
+          >
             Контакты
-          </a>
+          </Link>
         </li>
         {isLogin && (
           <li className="main-nav__item">
-            <a className="link" href={`${Page.Favorites}.html`}>
+            <Link
+              className={`link ${page === Page.MyQuests ? 'active' : ''}`}
+              to={Path.MyQuests}
+            >
               Мои бронирования
-            </a>
+            </Link>
           </li>
         )}
       </ul>

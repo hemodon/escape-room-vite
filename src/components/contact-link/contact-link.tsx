@@ -4,11 +4,11 @@ import { Contact, Contacts } from '../../const';
 import { convertPhone } from '../../utils';
 
 type ContactLinkProps = {
-  isHeader: boolean;
+  isHeader?: boolean;
   type: ContactValues;
 };
 
-function ContactLink({ isHeader, type }: ContactLinkProps) {
+function ContactLink({ isHeader = true, type }: ContactLinkProps) {
   const className = cn('link', {
     ['header__side-item header__phone-link']: isHeader,
   });

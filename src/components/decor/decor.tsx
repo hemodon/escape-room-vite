@@ -12,7 +12,7 @@ type DecorProps = {
 
 function Decor(props: DecorProps): JSX.Element {
   const { previewImg, coverImg, previewImgWebp, coverImgWebp, page } = props;
-  const isHigh = hasSome(page, Page.Booking, Page.Favorites, Page.Contacts);
+  const isHigh = hasSome(page, Page.Booking, Page.MyQuests, Page.Contacts);
 
   return (
     <div className="decorated-page__decor" aria-hidden="true">

@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { LogoSvg } from '../logo-svg/logo-svg';
+import { Path } from '../../../../const';
 
 type LogoProps = {
   isMain: boolean;
@@ -12,9 +14,9 @@ function Logo({ isMain }: LogoProps) {
       <LogoSvg />
     </span>
   ) : (
-    <a className={className} href="index.html" aria-label="Перейти на Главную">
+    <Link className={className} to={Path.Main} aria-label="Перейти на Главную">
       <LogoSvg />
-    </a>
+    </Link>
   );
 }
 

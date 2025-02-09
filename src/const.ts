@@ -4,7 +4,7 @@ const Page = {
   Contacts: 'contacts',
   Login: 'login',
   Booking: 'booking',
-  Favorites: 'my-quests',
+  MyQuests: 'my-quests',
 } as const;
 
 const PageTitle = {
@@ -13,7 +13,7 @@ const PageTitle = {
   [Page.Contacts]: 'Контакты',
   [Page.Login]: 'Авторизация',
   [Page.Booking]: 'Бронирование квеста',
-  [Page.Favorites]: 'Мои бронирования',
+  [Page.MyQuests]: 'Мои бронирования',
 } as const;
 
 const AuthStatus = {
@@ -24,17 +24,20 @@ const AuthStatus = {
 
 const Path = {
   Main: '/',
-  Quest: `/${Page.Quest}/:id`,
+  Quest: `/${Page.Quest}`,
   Contacts: `/${Page.Contacts}`,
   Login: `/${Page.Login}`,
   Booking: `/${Page.Booking}`,
-  Favorites: `/${Page.Favorites}`,
+  MyQuests: `/${Page.MyQuests}`,
   NotFound: '*',
 } as const;
 
 const Contacts = {
   Phone: '8 (999) 111-11-11',
-  Address: 'Санкт-Петербург,<br />Набережная реки Карповка, д 5П',
+  Location: {
+    address: 'Санкт-Петербург,<br />Набережная реки Карповка, д 5П',
+    coords: [30.317359, 30.317359],
+  },
   Work: 'Ежедневно, с&nbsp;10:00 до&nbsp;22:00',
   Email: 'info@escape-room.ru',
 };

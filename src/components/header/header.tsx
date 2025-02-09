@@ -16,10 +16,10 @@ function Header(props: HeaderProps): JSX.Element {
     <header className="header">
       <div className="container container--size-l">
         <Logo isMain={page === Page.Main} />
-        <Nav isLogin={isLogin} />
+        <Nav isLogin={isLogin} page={page} />
         <div className="header__side-nav">
           <LoginLink isLogin={isLogin} />
-          <ContactLink isHeader type={Contact.Phone} />
+          <ContactLink type={Contact.Phone} />
         </div>
       </div>
     </header>

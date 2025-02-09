@@ -17,7 +17,7 @@ const Title: FC<Props> = ({ as = 'h1', page, children }) => {
       page,
       Page.Main,
       Page.Booking,
-      Page.Favorites,
+      Page.MyQuests,
       Page.Contacts
     ),
     ['title--uppercase']: hasSome(page, Page.Booking, Page.Quest),

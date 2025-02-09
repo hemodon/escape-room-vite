@@ -14,7 +14,7 @@ type QuestTagsProps = {
 function QuestTags(props: QuestTagsProps): JSX.Element {
   const { peopleMinMax, level, page, peopleCount } = props;
   const className = cn('tags', {
-    ['quest-card__tags']: hasSome(page, Page.Main, Page.Favorites),
+    ['quest-card__tags']: hasSome(page, Page.Main, Page.MyQuests),
     ['tags--size-l quest-page__tags']: page === Page.Quest,
   });
   const levelQuest = FilterValues.level[level].text;

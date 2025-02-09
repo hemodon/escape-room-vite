@@ -2,6 +2,7 @@ import { Cards } from '../../components/cards/cards';
 import { Container } from '../../components/container/container';
 import { Decor } from '../../components/decor/decor';
 import { Footer } from '../../components/footer/footer';
+import { TitlePage } from '../../components/title-page/title-page';
 import { Header } from '../../components/header/header';
 import { Main } from '../../components/main/main';
 import { TitleWrapper } from '../../components/title-wrapper/title-wrapper';
@@ -13,7 +14,7 @@ type FavoritesProps = {
   isLogin: boolean;
 };
 
-function MyQuests({ isLogin }: FavoritesProps): JSX.Element {
+function MyQuestsPage({ isLogin }: FavoritesProps): JSX.Element {
   const page = Page.Favorites;
   const quests = userBookings.map(({ quest }) => quest);
   const dayPlaceBookings = userBookings.map(
@@ -27,6 +28,7 @@ function MyQuests({ isLogin }: FavoritesProps): JSX.Element {
 
   return (
     <div className="wrapper">
+      <TitlePage page={page} />
       <Header page={page} isLogin={isLogin} />
       <Main page={page}>
         <Decor
@@ -54,4 +56,4 @@ function MyQuests({ isLogin }: FavoritesProps): JSX.Element {
   );
 }
 
-export { MyQuests };
+export { MyQuestsPage };

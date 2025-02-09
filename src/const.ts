@@ -7,6 +7,15 @@ const Page = {
   Favorites: 'my-quests',
 } as const;
 
+const PageTitle = {
+  [Page.Main]: '',
+  [Page.Quest]: 'Квест',
+  [Page.Contacts]: 'Контакты',
+  [Page.Login]: 'Авторизация',
+  [Page.Booking]: 'Бронирование квеста',
+  [Page.Favorites]: 'Мои бронирования',
+} as const;
+
 const AuthStatus = {
   Auth: 'Auth',
   NoAuth: 'NoAuth',
@@ -111,4 +120,13 @@ const AllowedDate = {
   },
 } as const;
 
-export { Page, AuthStatus, Path, Contacts, Contact, FilterValues, AllowedDate };
+export {
+  Page,
+  AuthStatus,
+  Path,
+  Contacts,
+  Contact,
+  FilterValues,
+  AllowedDate,
+  PageTitle,
+};

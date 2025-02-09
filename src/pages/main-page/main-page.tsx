@@ -1,6 +1,7 @@
 import { Cards } from '../../components/cards/cards';
 import { Container } from '../../components/container/container';
 import { Footer } from '../../components/footer/footer';
+import { TitlePage } from '../../components/title-page/title-page';
 import { Header } from '../../components/header/header';
 import { Main } from '../../components/main/main';
 import { Subtitle } from '../../components/sub-title/subtitle';
@@ -20,6 +21,7 @@ function MainPage({ isLogin, quests }: MainPageProps) {
 
   return (
     <div className="wrapper">
+      <TitlePage page={page} />
       <Header page={page} isLogin={isLogin} />
       <Main page={page}>
         <Container page={page}>

@@ -6,6 +6,7 @@ import { Path } from '../../const';
 import { QuestPage } from '../../pages/quest-page/quest-page';
 import { MyQuestsPage } from '../../pages/my-quests-page/my-quests-page';
 import { ContactsPage } from '../../pages/contacts-page/contacts-page';
+import { NotFoundPage } from '../../pages/not-found-page/not-found-page';
 
 function App(): JSX.Element {
   const isLogin = true;
@@ -26,6 +27,10 @@ function App(): JSX.Element {
           <Route
             path={Path.Contacts}
             element={<ContactsPage isLogin={isLogin} />}
+          />
+          <Route
+            path={Path.NotFound}
+            element={<NotFoundPage isLogin={isLogin} />}
           />
         </Routes>
       </BrowserRouter>

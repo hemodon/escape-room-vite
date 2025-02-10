@@ -11,8 +11,8 @@ type NavProps = {
 
 function Nav({ isLogin, page }: NavProps) {
   const className = cn('link', {
-    ['active']: hasSome(page, Page.Main, Page.Quest),
-    ['not-disabled']: page === Page.Quest,
+    ['active']: hasSome(page, Page.Main, Page.Quest, Page.Login),
+    ['not-disabled']: hasSome(page, Page.Quest, Page.Login),
   });
 
   return (

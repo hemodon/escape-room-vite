@@ -10,6 +10,7 @@ import { TitlePage } from '../../components/title-page/title-page';
 import { Title } from '../../components/title/title';
 import { FilterValues, Page } from '../../const';
 import { questMains } from '../../moks/moks';
+import { NotFoundPage } from '../not-found-page/not-found-page';
 
 type QuestPageProps = {
   isLogin: boolean;
@@ -22,7 +23,7 @@ function QuestPage({ isLogin }: QuestPageProps): JSX.Element {
   const quest = questMains.find(({ id }) => id === questId);
 
   if (!quest) {
-    return <p>404, page not found</p>;
+    return <NotFoundPage isLogin={isLogin} />;
   }
 
   const {

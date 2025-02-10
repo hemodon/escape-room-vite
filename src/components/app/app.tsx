@@ -7,9 +7,10 @@ import { QuestPage } from '../../pages/quest-page/quest-page';
 import { MyQuestsPage } from '../../pages/my-quests-page/my-quests-page';
 import { ContactsPage } from '../../pages/contacts-page/contacts-page';
 import { NotFoundPage } from '../../pages/not-found-page/not-found-page';
+import { LoginPage } from '../../pages/login-page/login-page';
 
 function App(): JSX.Element {
-  const isLogin = true;
+  const isLogin = false;
 
   return (
     <HelmetProvider>
@@ -20,6 +21,7 @@ function App(): JSX.Element {
             element={<MainPage isLogin={isLogin} quests={quests} />}
           />
           <Route path={Path.Quest} element={<QuestPage isLogin={isLogin} />} />
+          <Route path={Path.Login} element={<LoginPage />} />
           <Route
             path={Path.MyQuests}
             element={<MyQuestsPage isLogin={isLogin} />}

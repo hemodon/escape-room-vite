@@ -18,7 +18,7 @@ function Header(props: HeaderProps): JSX.Element {
         <Logo isMain={page === Page.Main} />
         <Nav isLogin={isLogin} page={page} />
         <div className="header__side-nav">
-          <LoginLink isLogin={isLogin} />
+          {page !== Page.Login && <LoginLink isLogin={isLogin} />}
           <ContactLink type={Contact.Phone} />
         </div>
       </div>

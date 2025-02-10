@@ -15,7 +15,7 @@ const PageTitle = {
   [Page.Login]: 'Авторизация',
   [Page.Booking]: 'Бронирование квеста',
   [Page.MyQuests]: 'Мои бронирования',
-  [Page.NotFound]:'Страница отсутствует'
+  [Page.NotFound]: 'Страница отсутствует',
 } as const;
 
 const AuthStatus = {

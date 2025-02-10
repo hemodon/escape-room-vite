@@ -1,3 +1,4 @@
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { Title } from '../../../../components/title/title';
 import { PageValues } from '../../../../types/page';
 
@@ -5,13 +6,39 @@ type LoginFormProps = {
   page: PageValues;
 };
 
-function LoginForm({ page }: LoginFormProps):JSX.Element {
+type FormData = {
+  email: string;
+  password: string;
+  'user-agreement': boolean;
+};
+
+function LoginForm({ page }: LoginFormProps): JSX.Element {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  const validatePassword = (value: string): string | boolean => {
+    if (value.length < 3 || value.length > 15) {
+      return 'Пароль должен содержать от 3 до 15 символов';
+    } else if (!/[a-z]/.test(value)) {
+      return 'Пароль должен содержать хотя бы одну букву';
+    } else if (!/[0-9]/.test(value)) {
+      return 'Пароль должен содержать хотя бы одну цифру';
+    }
+    return true;
+  };
+
+  const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
+
   return (
     <div className="login__form">
       <form
         className="login-form"
         action="https://echo.htmlacademy.ru/"
         method="post"
+        onSubmit={handleSubmit(onSubmit)}
       >
         <div className="login-form__inner-wrapper">
           <Title as="h1" page={page}>
@@ -25,10 +52,23 @@ function LoginForm({ page }: LoginFormProps):JSX.Element {
               <input
                 type="email"
                 id="email"
-                name="email"
                 placeholder="Адрес электронной почты"
-                required
+                {...register('email', {
+                  required: 'Требуется электронная почта',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: 'Неверный адрес электронной почты',
+                  },
+                })}
               />
+              {errors.email && (
+                <span
+                  style={{ fontSize: 'small', color: '#f2890f' }}
+                  role="alert"
+                >
+                  {errors.email.message as string}
+                </span>
+              )}
             </div>
             <div className="custom-input login-form__input">
               <label className="custom-input__label" htmlFor="password">
@@ -37,10 +77,20 @@ function LoginForm({ page }: LoginFormProps):JSX.Element {
               <input
                 type="password"
                 id="password"
-                name="password"
                 placeholder="Пароль"
-                required
+                {...register('password', {
+                  required: 'Требуется пароль',
+                  validate: validatePassword,
+                })}
               />
+              {errors.password && (
+                <span
+                  style={{ fontSize: 'small', color: '#f2890f' }}
+                  role="alert"
+                >
+                  {errors.password.message as string}
+                </span>
+              )}
             </div>
           </div>
           <button
@@ -54,8 +104,7 @@ function LoginForm({ page }: LoginFormProps):JSX.Element {
           <input
             type="checkbox"
             id="id-order-agreement"
-            name="user-agreement"
-            required
+            {...register('user-agreement', { required: true })}
           />
           <span className="custom-checkbox__icon">
             <svg width={20} height={17} aria-hidden="true">

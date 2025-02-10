@@ -8,6 +8,7 @@ import { MyQuestsPage } from '../../pages/my-quests-page/my-quests-page';
 import { ContactsPage } from '../../pages/contacts-page/contacts-page';
 import { NotFoundPage } from '../../pages/not-found-page/not-found-page';
 import { LoginPage } from '../../pages/login-page/login-page';
+import { PrivateRoute } from '../header/components/private-route/private-route';
 
 function App(): JSX.Element {
   const isLogin = false;
@@ -24,7 +25,11 @@ function App(): JSX.Element {
           <Route path={Path.Login} element={<LoginPage />} />
           <Route
             path={Path.MyQuests}
-            element={<MyQuestsPage isLogin={isLogin} />}
+            element={
+              <PrivateRoute toPath={Path.Login} isOpen={isLogin}>
+                <MyQuestsPage isLogin={isLogin} />
+              </PrivateRoute>
+            }
           />
           <Route
             path={Path.Contacts}

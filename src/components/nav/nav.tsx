@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Page, Path } from '../../const';
 import { PageValues } from '../../types/page';
+import cn from 'classnames';
+import { hasSome } from '../../utils';
 
 type NavProps = {
   isLogin: boolean;
@@ -8,14 +10,16 @@ type NavProps = {
 };
 
 function Nav({ isLogin, page }: NavProps) {
+  const className = cn('link', {
+    ['active']: hasSome(page, Page.Main, Page.Quest),
+    ['not-disabled']: page === Page.Quest,
+  });
+
   return (
     <nav className="main-nav header__main-nav">
       <ul className="main-nav__list">
         <li className="main-nav__item">
-          <Link
-            className={`link ${page === Page.Main ? 'active' : ''}`}
-            to={Path.Main}
-          >
+          <Link className={className} to={Path.Main}>
             Квесты
           </Link>
         </li>

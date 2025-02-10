@@ -24,7 +24,7 @@ const AuthStatus = {
 
 const Path = {
   Main: '/',
-  Quest: `/${Page.Quest}`,
+  Quest: `/${Page.Quest}/:questId`,
   Contacts: `/${Page.Contacts}`,
   Login: `/${Page.Login}`,
   Booking: `/${Page.Booking}`,

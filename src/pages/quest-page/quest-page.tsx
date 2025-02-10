@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import { Container } from '../../components/container/container';
 import { Decor } from '../../components/decor/decor';
 import { Footer } from '../../components/footer/footer';
@@ -16,7 +17,8 @@ type QuestPageProps = {
 
 function QuestPage({ isLogin }: QuestPageProps): JSX.Element {
   const page = Page.Quest;
-  const questId = '0a6b665c-7191-4e09-96a5-b091f45f108f';
+
+  const { questId } = useParams();
   const quest = questMains.find(({ id }) => id === questId);
 
   if (!quest) {
